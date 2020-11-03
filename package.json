@@ -1,0 +1,22 @@
+{
+  "name": "transformers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "preProcessor.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebAhead7/Transformers.git"
+  },
+  "author": "Transformers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebAhead7/Transformers/issues"
+  },
+  "homepage": "https://github.com/WebAhead7/Transformers#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
