@@ -1,4 +1,4 @@
-const autoCompleteApi="";
+const autoCompleteApi="getCar:";
 let grappedData;
 const testArr=[{
     "Name":"chevrolet chevelle malibu",
@@ -55,7 +55,8 @@ const testArr=[{
     "Year":"1970-01-01",
     "Origin":"USA"
  }];
-
+ // home url, change it on deployment ...
+const homeUrl ="http://localhost:3000/";
  //grapping HTML elements
 const list=document.querySelector("#cars");
 const input=document.querySelector("#search-input");
