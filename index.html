@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Transformers</title>
 </head>
 <body>
 
     <h1>The datalist element</h1>
     
     <form>
-      <label for="browser">Choose your browser from the list:</label>
-      <input list="browsers" name="browser" id="browser">
-      <datalist id="browsers">
+      <label for="cars">Choose your browser from the list:</label>
+      <input list="cars" name="browser" id="search-input">
+      <datalist id="cars">
+        <option value="mazda">
+        <option value="ford">
+        <option value="toyota">
+        <option value="bmw">
+        <option value="ferrari">
       </datalist>
       <input type="submit">
+
     </form>
     
-    
+    <script src="./index.js"></script>
     </body>
 </html>
