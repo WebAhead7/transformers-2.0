@@ -2,9 +2,9 @@
   "name": "transformers",
   "version": "1.0.0",
   "description": "",
-  "main": "preProcessor.js",
+  "main": "",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
