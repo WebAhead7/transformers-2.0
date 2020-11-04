@@ -2,7 +2,7 @@ const url = require("url");
 const data = require("../../data/cars.json");
 console.log(data.length);
 function getCarsByName(name) {
-  return data.filter((car) => car.Name.includes(name)).slice(0, 5);
+  return data.filter((car) => car.Name.startsWith(name)).slice(0, 5);
 }
 function getCarHandler(request, response) {
   const reqObject = url.parse(request.url, true);
