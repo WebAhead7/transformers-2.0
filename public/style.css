@@ -1,8 +1,68 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
 body{
     background-image:url(https://ourautoexpert.com/wp-content/uploads/2020/01/CES_Mercedes-Benz_VISION_AVTR5-scaled.jpg) ;
     background-repeat:no-repeat;
+    color:white;
+    height:100vh;
 }
 
-.hidden{
-    display: none;
+
+#title{
+    text-align: center;
+    font-size: 60px;
+}
+
+#title span{
+    color:rgb(0, 255, 0);
+}
+
+
+label{
+font-size:25px;
+}
+
+
+form{
+    text-align: center;
+    padding-top:40px;
+}
+
+input{
+    font-size: 20px;
+    padding:5px;
+    font-weight: bold;
+}
+
+#car-div{
+    color:#000;
+    font-weight: bold;
+    border:5px solid blue;
+    box-shadow: 3px 3px 20px blue,
+    -3px -3px 20px blue;
+    width:50%;
+    height:650px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgba(237, 237, 237,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    row-gap: 70px;
+}
+
+
+#car-div h3{
+    font-size: 35px;
+}
+
+
+#car-div span{
+    color:rgb(0, 255, 0);
 }
