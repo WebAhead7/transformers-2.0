@@ -6,8 +6,8 @@ function getCarsByName(name) {
 function getCarHandler(request, response) {
   const reqObject = url.parse(request.url, true);
   console.log("REQUEST OBJECT: ",reqObject);
-   /*reqObject.query make this thing => ?name=mazda to this things: 
-  {"name":"mazda"}*/
+   /*reqObject.query makes the search from the url object
+   equals to this: {"name":"mazda"}*/
   console.log("reqObject: ",JSON.stringify(reqObject.query));
   console.log(reqObject.hostname);
   console.log(reqObject.pathname);
