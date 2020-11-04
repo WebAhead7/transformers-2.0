@@ -2,7 +2,7 @@ const autoCompleteApi = "getcar/";
 let grappedData;
 let wantedSize=7;
 // home url, change it on deployment ...
-const homeUrl = "http://localhost:4020/";
+const homeUrl = "http://localhost:3000/";
 
 
 //grapping HTML elements
