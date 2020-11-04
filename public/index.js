@@ -77,7 +77,7 @@ function updateCarListOptions(data) {
 }
 //here we are fetching data from the server and put it in array
 input.addEventListener("keyup", (e) => {
-  const url = `${homeUrl}${autoCompleteApi}?name=${e.target.value}`;
+  const url = `${homeUrl}getcar/?name=${e.target.value}`;
   fetch(url)
     .then((response) => {
       console.log(response);
