@@ -1,68 +1,17 @@
 const autoCompleteApi = "getcar/";
 let grappedData;
-const testArr = [
-  {
-    Name: "chevrolet chevelle malibu",
-    Miles_per_Gallon: 18,
-    Cylinders: 8,
-    Displacement: 307,
-    Horsepower: 130,
-    Weight_in_lbs: 3504,
-    Acceleration: 12,
-    Year: "1970-01-01",
-    Origin: "USA",
-  },
-  {
-    Name: "buick skylark 320",
-    Miles_per_Gallon: 15,
-    Cylinders: 8,
-    Displacement: 350,
-    Horsepower: 165,
-    Weight_in_lbs: 3693,
-    Acceleration: 11.5,
-    Year: "1970-01-01",
-    Origin: "USA",
-  },
-  {
-    Name: "plymouth satellite",
-    Miles_per_Gallon: 18,
-    Cylinders: 8,
-    Displacement: 318,
-    Horsepower: 150,
-    Weight_in_lbs: 3436,
-    Acceleration: 11,
-    Year: "1970-01-01",
-    Origin: "USA",
-  },
-  {
-    Name: "amc rebel sst",
-    Miles_per_Gallon: 16,
-    Cylinders: 8,
-    Displacement: 304,
-    Horsepower: 150,
-    Weight_in_lbs: 3433,
-    Acceleration: 12,
-    Year: "1970-01-01",
-    Origin: "USA",
-  },
-  {
-    Name: "ford torino",
-    Miles_per_Gallon: 17,
-    Cylinders: 8,
-    Displacement: 302,
-    Horsepower: 140,
-    Weight_in_lbs: 3449,
-    Acceleration: 10.5,
-    Year: "1970-01-01",
-    Origin: "USA",
-  },
-];
+let wantedSize = 7;
+let grappedDataIsUpdated = true;
 // home url, change it on deployment ...
 const homeUrl = "http://localhost:3000/";
+
 //grapping HTML elements
+const form = document.querySelector("form");
 const carList = document.querySelector("#cars");
 const input = document.querySelector("#search-input");
+const carContainer = document.querySelector("#car-container");
 
+//updateCarListOptions() function
 function updateCarListOptions(data) {
   carList.innerHTML = "";
   data
@@ -75,9 +24,36 @@ function updateCarListOptions(data) {
       carList.appendChild(option);
     });
 }
-//here we are fetching data from the server and put it in array
+
+//Event listener for the form to show the data in the DOM
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //here we are checking if the data was fetched(ended).
+  if (grappedDataIsUpdated) {
+    if (input.value !== "") {
+      carContainer.innerHTML = "";
+      let carDiv = document.createElement("div");
+      carDiv.id = "car-div";
+      console.log(grappedData);
+      const carObj = grappedData[0];
+      carDiv.innerHTML = `<h3>Car Model: <span>${carObj.Name}</span></h3>
+      <h3>Horse Power: <span>${carObj.Horsepower}</span></h3>
+      <h3>Weight(lbs): <span>${carObj.Weight_in_lbs}</span></h3>
+      <h3>Acceleration: <span>${carObj.Acceleration}</span></h3>
+      <h3>Year: <span>${carObj.Year}</span></h3>
+      <h3>Origin: <span>${carObj.Origin}</span></h3>`;
+      carContainer.appendChild(carDiv);
+      input.value = "";
+    } else {
+      alert("Type a car name please!");
+    }
+  }
+});
+
+//here we are fetching data (sending a request to the server)
 input.addEventListener("keyup", (e) => {
-  const url = `${homeUrl}getcar/?name=${e.target.value}`;
+  const url = `${homeUrl}${autoCompleteApi}?name=${e.target.value}&count=${wantedSize}`;
+  grappedDataIsUpdated = false;
   fetch(url)
     .then((response) => {
       console.log(response);
@@ -85,13 +61,14 @@ input.addEventListener("keyup", (e) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       if (data.length !== 0) {
         updateCarListOptions(data);
         grappedData = data;
       }
+      grappedDataIsUpdated = true;
     })
     .catch((error) => {
       console.log(error);
+      grappedDataIsUpdated = true;
     });
 });
