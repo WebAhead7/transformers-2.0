@@ -1,5 +1,6 @@
+const path=require("path");
 const url = require("url");
-const data = require("../../data/cars.json");
+const data = require(path.join(__dirname,"..","..","data/cars.json"));
 console.log(data.length);
 function getCarsByName(name) {
   return data.filter((car) => car.Name.startsWith(name)).slice(0, 5);
