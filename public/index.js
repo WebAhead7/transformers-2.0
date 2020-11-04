@@ -42,7 +42,7 @@ input.addEventListener("keyup", (e) => {
         updateCarListOptions(data);
         grappedData = data;
         searchButton.addEventListener("click",()=>{
-          let
+          //let carDiv=document.createElement("div");
         });
       }
     })
