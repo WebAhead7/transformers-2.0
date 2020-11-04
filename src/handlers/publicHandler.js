@@ -16,7 +16,7 @@ function publicHandler(request, response) {
     if (err) {
       console.log(err);
       response.writeHead(404, { "content-type": "text/html" });
-      response.end("<h1>Not found</h1>");
+      response.end("<h1>Not Found</h1>");
     }
     else{
       try {

@@ -11,7 +11,7 @@ function getCarHandler(request, response) {
   console.log(urlObject);
   if (urlObject.pathname === "/getcar/") {
     console.log(getCarsByName(urlObject.query.name));
-    response.writeHead(201, { "content-type": "application/json" });
+    response.writeHead(200, { "content-type": "application/json" });
     response.end(JSON.stringify(getCarsByName(urlObject.query.name)));
   } else {
     response.writeHead(404, { "content-type": "text/html" });
@@ -19,4 +19,7 @@ function getCarHandler(request, response) {
   }
 }
 
-module.exports = getCarHandler;
+module.exports ={
+  getCarHandler,
+  getCarsByName
+} ;

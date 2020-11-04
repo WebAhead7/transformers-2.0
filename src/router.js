@@ -1,6 +1,6 @@
 const homeHandler = require("./handlers/homeHandler");
 const publicHandler = require("./handlers/publicHandler");
-const getCarHandler = require("./handlers/getCarHandler");
+const getCarHandler = require("./handlers/getCarHandler").getCarHandler;
 function router(request, response) {
   const url = request.url;
   //if its the home page
