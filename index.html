@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <title>Transformers</title>
 </head>
 <body>
 
     <h1>The Cars Lists Of Transformers</h1>
     
     <form>
-      <label for="browser">Type your car name:</label><br>
-      <input list="listCars hidden" name="text" id="text">
-      <datalist id="listCars">
-        <option >chrome</option>
-        <option >fdf</option>
-        <option >chrofsdfsme</option>
-        <option >chgfvxrome</option>
+      <label for="cars">Choose your browser from the list:</label>
+      <input list="cars" name="browser" id="search-input">
+      <datalist id="cars">
+        <option value="mazda">
+        <option value="ford">
+        <option value="toyota">
+        <option value="bmw">
+        <option value="ferrari">
       </datalist>
+      <input type="submit">
 
-     
-      <input type="submit" id="submit">
     </form>
     
-    
+    <script src="public/index.js"></script>
     </body>
     <script type="text/javascript" src="index.js"></script>
 </html>
