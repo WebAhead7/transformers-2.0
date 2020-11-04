@@ -1,5 +1,6 @@
 const url = require("url");
 const data = require("../../data/cars.json");
+console.log(data.length);
 function getCarsByName(name) {
   return data.filter((car) => car.Name.includes(name)).slice(0, 5);
 }
@@ -13,7 +14,7 @@ function getCarHandler(request, response) {
   console.log(reqObject.pathname);
   console.log(reqObject.search);
   if (reqObject.pathname === "/getcar/") {
-    console.log(getCarsByName(reqObject.query.name));
+    console.log(getCarsByName(reqObject.query.name).length);
     response.writeHead(200, { "content-type": "application/json" });
     response.end(JSON.stringify(getCarsByName(reqObject.query.name)));
   } else {

@@ -62,7 +62,8 @@ const homeUrl = "http://localhost:4020/";
 //grapping HTML elements
 const carList = document.querySelector("#cars");
 const input = document.querySelector("#search-input");
-
+const searchButton=document.querySelector("#search-btn");
+const carContainer=document.querySelector("#car-container");
 function updateCarListOptions(data) {
   carList.innerHTML = "";
   data
@@ -89,6 +90,9 @@ input.addEventListener("keyup", (e) => {
       if (data.length !== 0) {
         updateCarListOptions(data);
         grappedData = data;
+        searchButton.addEventListener("click",()=>{
+          let
+        });
       }
     })
     .catch((error) => {
