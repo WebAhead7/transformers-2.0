@@ -25,6 +25,8 @@ function publicHandler(request, response) {
       } catch (error) {
         console.error(error.message);
         console.log(error);
+        response.writeHead(404, { "content-type": "text/plain" });
+        response.end("Error");
       }
     }
   });
