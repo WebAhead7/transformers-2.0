@@ -85,7 +85,7 @@ input.addEventListener("keyup", (e) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      console.log("DATTTTA:",data);
       if (data.length !== 0) {
         updateCarListOptions(data);
         grappedData = data;
