@@ -58,7 +58,7 @@ const testArr = [
   },
 ];
 // home url, change it on deployment ...
-const homeUrl = "http://localhost:4000/";
+const homeUrl = "http://localhost:4020/";
 //grapping HTML elements
 const carList = document.querySelector("#cars");
 const input = document.querySelector("#search-input");

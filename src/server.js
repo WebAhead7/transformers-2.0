@@ -1,6 +1,6 @@
 const http = require("http");
 const router = require("./router");
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4020;
 const host = process.env.HOST || "localhost:";
 const autoCompleteApi = "";
 
