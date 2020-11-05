@@ -3,7 +3,8 @@ const url = require("url");
 const data = require("../../data/cars.json");
 
 function getCarsByName(name, count = 5) {
-  return data.filter((car) => car.Name.startsWith(name)).slice(0, count);
+  return data.filter((car) => car.Name.toLocaleLowerCase()
+  .startsWith(name?name.toLowerCase():name)).slice(0, count);
 }
 
 function getCarHandler(request, response) {

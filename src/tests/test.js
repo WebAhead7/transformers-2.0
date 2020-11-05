@@ -5,6 +5,7 @@ const path = require("path");
 const router = require("../../src/router");
 const getCarByName = require("../handlers/getCarHandler").getCarsByName;
 
+
 //testing home page html file
 test("home page html file", (t) => {
   supertest(router)
@@ -24,6 +25,7 @@ test("home page html file", (t) => {
       );
     });
 });
+
 
 //testing css file query
 test("testing css file query", (t) => {
@@ -45,6 +47,7 @@ test("testing css file query", (t) => {
     });
 });
 
+
 //testing home page javascript file
 test("testing javaScript file query", (t) => {
   supertest(router)
@@ -65,18 +68,6 @@ test("testing javaScript file query", (t) => {
     });
 });
 
-//testing something that doesnt found in public
-test("testing something that doesnt found in public", (t) => {
-  supertest(router)
-    .get("/public/hehe.png")
-    .expect(404)
-    .expect("content-type", "text/html")
-    .end((error, response) => {
-      if (error) t.error(error);
-      t.equal(response.text, "<h1>Not Found</h1>");
-      t.end();
-    });
-});
 
 //testing something that doesnt found in public
 test("testing something that doesnt found in public", (t) => {
@@ -90,6 +81,7 @@ test("testing something that doesnt found in public", (t) => {
       t.end();
     });
 });
+
 
 //testing file extension that doesnt exist in public api
 test("file extension that doesnt exist in public api", (t) => {
@@ -104,8 +96,11 @@ test("file extension that doesnt exist in public api", (t) => {
     });
 });
 
-//testing valid get car api
-test("valid get car api ", (t) => {
+
+/*testing valid getcar api
+**NOTEEEEEE:JSON.parse is not the inverse function
+of JSON.stringify*/
+test("valid getcar api ", (t) => {
   supertest(router)
     .get("/getcar/?name=mazda")
     .expect(200)
@@ -117,7 +112,7 @@ test("valid get car api ", (t) => {
     });
 });
 
-//testing valid getcar api
+//valid get car api with default count query variable
 test("valid get car api with default count query variable", (t) => {
   supertest(router)
     .get("/getcar/?name=mazda")
@@ -129,6 +124,7 @@ test("valid get car api with default count query variable", (t) => {
       t.end();
     });
 });
+
 
 //testing api getcar with optional params count
 test("Api /getcar/?name={}&[count=integer] with optional params count", (t) => {
