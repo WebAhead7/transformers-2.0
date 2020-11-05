@@ -3,7 +3,7 @@ let grappedData;
 let wantedSize = 7;
 let grappedDataIsUpdated = true;
 // home url, change it on deployment ...
-const homeUrl = "http://localhost:3000/";
+const homeUrl = "https://trans-formers.herokuapp.com/";
 
 //grapping HTML elements
 const form = document.querySelector("form");
