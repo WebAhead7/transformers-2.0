@@ -8,18 +8,17 @@ function getCarsByName(name, count = 5) {
 
 function getCarHandler(request, response) {
   const urlObject = url.parse(request.url, true);
-  console.log(urlObject);
   if (urlObject.pathname === "/getcar/") {
-    console.log(getCarsByName(urlObject.query.name));
+    const { name, count } = urlObject.query;
     response.writeHead(200, { "content-type": "application/json" });
-    response.end(JSON.stringify(getCarsByName(urlObject.query.name)));
+    response.end(JSON.stringify(getCarsByName(name, count)));
   } else {
     response.writeHead(404, { "content-type": "text/html" });
     response.end("<h1>Not Found</h1>");
   }
 }
 
-module.exports ={
+module.exports = {
   getCarHandler,
-  getCarsByName
-} ;
+  getCarsByName,
+};
