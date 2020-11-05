@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const missingHandler = require("./missingHandler");
 const types = {
   ".html": "text/html",
   ".css": "text/css",
@@ -15,18 +16,15 @@ function resourcesHandler(request, response) {
   fs.readFile(filePath, (err, file) => {
     if (err) {
       console.log(err);
-      response.writeHead(404, { "content-type": "text/html" });
-      response.end("<h1>Not Found</h1>");
-    }
-    else{
+      missingHandler(request, response);
+    } else {
       try {
         response.writeHead(200, { "content-type": contentType });
         response.end(file);
       } catch (error) {
         console.error(error.message);
         console.log(error);
-        response.writeHead(404, { "content-type": "text/plain" });
-        response.end("Error");
+        missingHandler(request, response);
       }
     }
   });
