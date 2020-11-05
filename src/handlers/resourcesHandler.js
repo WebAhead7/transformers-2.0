@@ -9,7 +9,7 @@ const types = {
   ".jpeg": "image/jpeg",
   ".ico": "image/x-icon",
 };
-function publicHandler(request, response) {
+function resourcesHandler(request, response) {
   const filePath = path.join(__dirname, "..", "..", request.url);
   const contentType = types[path.extname(filePath)];
   fs.readFile(filePath, (err, file) => {
@@ -32,4 +32,4 @@ function publicHandler(request, response) {
   });
 }
 
-module.exports = publicHandler;
+module.exports = resourcesHandler;

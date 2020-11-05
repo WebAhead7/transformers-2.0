@@ -1,5 +1,5 @@
 const homeHandler = require("./handlers/homeHandler");
-const publicHandler = require("./handlers/publicHandler");
+const resourcesHandler = require("./handlers/resourcesHandler");
 const getCarHandler = require("./handlers/getCarHandler").getCarHandler;
 function router(request, response) {
   const url = request.url;
@@ -14,7 +14,7 @@ function router(request, response) {
   these pages will be requested after the home page is loaded
   as mentioned*/
   else if (url.startsWith("/public")) {
-    publicHandler(request, response);
+    resourcesHandler(request, response);
   }
   /*The getcar word is just a word for us to know that
   this url sent with dynamic data*/
