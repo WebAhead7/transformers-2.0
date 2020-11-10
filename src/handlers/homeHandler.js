@@ -4,7 +4,7 @@ const missingHandler = require("./missingHandler");
 
 function homeHanler(request, response) {
   console.log(request.url);
-  fs.readFile(path.join(__dirname, "..", "..", "public","index.html"), (err, data) => {
+  fs.readFile(path.join(__dirname, "..", "..", "public", "index.html"), (err, data) => {
     if (err) {
       console.log(err);
       missingHandler(request, response);

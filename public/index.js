@@ -3,7 +3,7 @@ let grappedData;
 let wantedSize = 7;
 let grappedDataIsUpdated = true;
 // home url, change it on deployment ...
-const homeUrl = "https://trans-formers.herokuapp.com/";
+const homeUrl = "http://localhost:3000/";
 
 //grapping HTML elements
 const form = document.querySelector("form");
@@ -52,12 +52,13 @@ form.addEventListener("submit", (e) => {
 
 //here we are fetching data (sending a request to the server)
 input.addEventListener("keyup", (e) => {
+  console.log("I have caught the event")
   const url = `${homeUrl}${autoCompleteApi}?name=${e.target.value}&count=${wantedSize}`;
   console.log(url);
   grappedDataIsUpdated = false;
+  console.log(url)
   fetch(url)
     .then((response) => {
-      console.log(response);
       if (!response.ok) throw new Error("error: failed to receice data ...");
       return response.json();
     })

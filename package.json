@@ -4,8 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "dev": "nodemon ./src/server.js",
-    "start": "node ./src/server.js",
+    "dev": "node ./src/server.js",
+    "start": "nodemon ./src/server.js",
     "test": "node ./src/tests/test.js | tap-spec"
   },
   "repository": {
@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/WebAhead7/Transformers#readme",
   "devDependencies": {
-    "nodemon": "^2.0.6",
     "supertest": "^6.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^5.0.1"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.6"
   }
 }
