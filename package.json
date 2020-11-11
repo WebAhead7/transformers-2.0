@@ -24,6 +24,7 @@
     "tape": "^5.0.1"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.6"
   }
 }

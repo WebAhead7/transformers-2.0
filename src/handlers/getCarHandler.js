@@ -14,14 +14,15 @@ function getCarsByName(name, count = 5) {
     .slice(0, count);
 }
 
+const api_key = process.env.API_KEY
 
 // function returning a promise
 function giphyRequest(name) {
   return promise = new Promise((resolve, reject) => {
     https.get(
-      `https://api.giphy.com/v1/gifs/search?api_key=a6msXm46Y339YS7ORpcIOuHFITiSBqFL&q=${name}&limit=25&offset=0&rating=g&lang=en`
+      `https://api.giphy.com/v1/gifs/search?api_key=${api_key}&q=${name}&limit=25&offset=0&rating=g&lang=en`
       , res => {
-        giphyData = ''
+        var giphyData = ''
 
         res.on('data', chunk => {
           giphyData += chunk
@@ -42,12 +43,11 @@ function getCarHandler(request, response) {
   if (urlObject.pathname === "/getcar/") {
     const { name, count } = urlObject.query;
     const carsArr = getCarsByName(name, count)
-    console.log("carhandler")
+
 
     if (name) {
       giphyRequest(name)
         .then(data => {
-          console.log("HERE")
 
           const giphyUrl = data.giphyData.data[0].images.original.url
           carsArr.push(giphyUrl)

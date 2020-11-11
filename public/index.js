@@ -3,13 +3,15 @@ let grappedData;
 let wantedSize = 7;
 let grappedDataIsUpdated = true;
 // home url, change it on deployment ...
-const homeUrl = "http://https://transformers2-0.herokuapp.com/";
+const homeUrl = "https://transformers2-0.herokuapp.com/";
 
 //grapping HTML elements
 const form = document.querySelector("form");
 const carList = document.querySelector("#cars");
 const input = document.querySelector("#search-input");
 const carContainer = document.querySelector("#car-container");
+const searchBtn = document.querySelector('#search-btn')
+const giphyContainer = document.querySelector('#giphy-container')
 
 //updateCarListOptions() function
 function updateCarListOptions(data) {
@@ -32,6 +34,7 @@ form.addEventListener("submit", (e) => {
   if (grappedDataIsUpdated) {
     if (input.value !== "") {
       carContainer.innerHTML = "";
+      giphyContainer.innerHTML = ""
       let carDiv = document.createElement("div");
       carDiv.id = "car-div";
       console.log(grappedData);
@@ -43,6 +46,18 @@ form.addEventListener("submit", (e) => {
       <h3>Year: <span>${carObj.Year}</span></h3>
       <h3>Origin: <span>${carObj.Origin}</span></h3>`;
       carContainer.appendChild(carDiv);
+
+
+
+      const giphy = document.createElement("img");
+      giphy.setAttribute('src', grappedData[grappedData.length - 1]);
+
+      console.log('Heelo::: ', giphy);
+
+      giphyContainer.appendChild(giphy);
+
+
+
       input.value = "";
     } else {
       alert("Type a car name please!");
@@ -52,11 +67,9 @@ form.addEventListener("submit", (e) => {
 
 //here we are fetching data (sending a request to the server)
 input.addEventListener("keyup", (e) => {
-  console.log("I have caught the event")
   const url = `${homeUrl}${autoCompleteApi}?name=${e.target.value}&count=${wantedSize}`;
-  console.log(url);
   grappedDataIsUpdated = false;
-  console.log(url)
+
   fetch(url)
     .then((response) => {
       if (!response.ok) throw new Error("error: failed to receice data ...");
@@ -75,3 +88,5 @@ input.addEventListener("keyup", (e) => {
       grappedDataIsUpdated = true;
     });
 });
+
+
