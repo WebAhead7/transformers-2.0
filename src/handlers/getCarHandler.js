@@ -20,7 +20,7 @@ const api_key = process.env.API_KEY
 function giphyRequest(name) {
   return promise = new Promise((resolve, reject) => {
     https.get(
-      `https://api.giphy.com/v1/gifs/search?api_key=a6msXm46Y339YS7ORpcIOuHFITiSBqFL&q=${name}&limit=25&offset=0&rating=g&lang=en`
+      `https://api.giphy.com/v1/gifs/search?api_key=${process.env.API_KEY}&q=${name}&limit=25&offset=0&rating=g&lang=en`
       , res => {
         var giphyData = ''
 
